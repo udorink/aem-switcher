@@ -1,12 +1,18 @@
 <!DOCTYPE html>
-
 <html>
-  <head>
-    <meta charset="utf-8"/>
+<!--
+
+UTF ICONS LISTE
+https://de.wikipedia.org/wiki/Unicodeblock_Verschiedene_piktografische_Symbole
+
+  -->
+
+<head>
+    <meta charset="utf-8" />
     <style>
-      .url-input {
-        width:80%;
-        margin:0.2em;
+        .url-input {
+        width:86%;
+        margin:0.1em;
         font-size: 1.1em;
       }
       .url-input-label{
@@ -15,59 +21,63 @@
       }
       .mandant-settings-pair{
         font-size: 1.1em;
-        margin-bottom:1em;
-        padding:1em;
+        padding-left:0.4em;
+        margin-bottom:0.4em;
         background-color: #eee;
       }
-      button{
-        padding:0.3em;
-        margin:0.2em;
+      #shortcut{
+        background-color: #eee;
+        padding: 0.4em;
+      }
+      #add{
+        margin-top:2em;
+        margin-bottom:2em;
+        font-size: 1.2em;
+      }
+      #legende{
         font-size: 1.1em;
       }
-    </style>
+      button{
+        padding:0.1em;
+        margin:0.1em;
+        font-size: 1em;
+      }
+     </style>
+</head>
 
-  </head>
-
-  <body>
+<body>
     <form>
-<!-- 
-      <div id="shortcut">
-        <label>Keyboard shortcut</label>
-        <input type="text" id="shortcut" >
-        <button id="update">Update keyboard shortcut</button>
-        <button id="reset">Reset  keyboard shortcut</button>
-      </div> -->
-
-    <div class="options-container">
-
-
-
-      <!-- itemcontainer -->
-
-      <template id="mandant-settings-template">
-        <div class="mandant-settings-pair">
-          <label class="url-input-label">Live URL:</label>
-          <input class="url-input url-input-live" type="text" /> 
-          <button >X</button>
-          <br>
-          <label class="url-input-label">AEM URL:</label>
-          <input class="url-input url-input-aem" type="text" />
+        <div>
+            <button id="add">&#128171; Neuen Mandanten hinzufügen</button>
         </div>
-      </template>
-
-
-     
-
-      
-  </div>
-
-
-      <button id="add">Add new Publication settings URL String pair</button>
-      <br>
-      <br>
-      <button type="submit">Save</button>
-    
+        <h2><u>Liste eingetragener Mandanten</u></h2>
+        <div class="options-container">
+            <!-- itemcontainer -->
+            <template id="mandant-list-template">
+                <div class="mandant-settings-pair">
+                    <input class="url-input url-input-live" type="text" disabled />
+                    <button title="bearbeiten">&#x1F58B;</button>
+                    <button title="löschen">&#x1F5D1;</button>
+                </div>
+            </template>
+        </div>
+        <p id="legende">( &#x1F58B; = Mandant bearbeiten | &#x1F5D1; = Mandant löschen )</p>
+        <br>
     </form>
+    <div id="shortcut">
+        <h3>Tastenkombination / Shortcut</h3>
+
+        <label>Keyboard shortcut</label>
+        <input type="text" id="shortcut">
+        <br><br>
+        <button id="setshortcut">&#128295; Tastenkombination / Shortcut einstellen</button><br>
+        <button id="reset">zurücksetzen</button>
+    </div>
+    <div>
+        <br>
+        <button type="submit">&#9989; Speichern</button>
+    </div>
     <script src="options.js"></script>
-  </body>
+</body>
+
 </html>

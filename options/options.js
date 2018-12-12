@@ -1,6 +1,6 @@
 function saveOptions(e) {
 
-var mandantenliste = [];
+//var mandantenliste = [];
 
 
 
@@ -33,7 +33,7 @@ function restoreOptions() {
 
 
 
-/*
+
   var mandantenliste = [
           { 
             live: "https://www.iis.fraunhofer.de/",
@@ -41,13 +41,13 @@ function restoreOptions() {
           }
           ,
           { 
-            live: "https://www.iis.fraunhofer.de/",
-            aem: "https://www2.iis.fraunhofer.de/"
+            live: "https://www.scs.fraunhofer.de/",
+            aem: "https://www2.scs.fraunhofer.de/"
           }
           ,
           { 
-            live: "https://www.iis.fraunhofer.de/",
-            aem: "https://www2.iis.fraunhofer.de/"
+            live: "https://www.aes.iis.fraunhofer.de/",
+            aem: "https://www2.aes.iis.fraunhofer.de/"
           }
         ]
   
@@ -56,24 +56,19 @@ mandantenliste.forEach(mandant =>
           {
               addConfigItem(mandant.live,mandant.aem);
           });
-*/
+
 
 }
 
-
 function addConfigItem(live,aem){
-    var template = document.querySelector("#mandant-settings-template").content.querySelector("div");
+    var template = document.querySelector("#mandant-list-template").content.querySelector("div");
     console.log(template);
     var node = document.importNode(template, true);
     node.querySelector(".url-input-live").value=live;
-    node.querySelector(".url-input-aem").value=aem;
-
     console.log(node);
     console.log(document.querySelector(".options-container"));
     document.querySelector(".options-container").appendChild(node);
 }
-
-
 
 document.addEventListener('DOMContentLoaded', restoreOptions);
 document.querySelector("form").addEventListener("submit", saveOptions);
